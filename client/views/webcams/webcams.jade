@@ -1,0 +1,20 @@
+h4 {{title}}
+.row
+  .col-xs-5
+  .col-xs-2
+    h5 Enter Zipcode:
+      form(role='form', novalidate, ng-hide='hidewZip', name='wzipForm')
+        .form-group
+          input.form-control#wzip(ng-pattern='/^[0-9]{5}$/', required, ng-model='zip', type='text', name='wzip', autofocus)
+        button.btn.btn-primary(ng-click='getWebcams()', ng-show='wzipForm.$valid') Get Webcams
+  .col-xs-5
+.row
+  h5 The zipcode you entered is:
+  h5 {{wzip}}
+.row
+  .col-xs-1
+  .col-xs-10
+    h3 Available Webcams:
+    .webcams(ng-repeat='webcam in webcams')
+      img(ng-src='{{webcam.WIDGETCURRENTIMAGEURL}}')
+  .col-xs-1

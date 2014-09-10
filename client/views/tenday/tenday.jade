@@ -1,0 +1,21 @@
+h4 {{title}}
+.row
+  .col-xs-5
+  .col-xs-2
+    h5 Enter Zipcode:
+      form(role='form', novalidate, ng-hide='hidetenZip', name='tenzipForm')
+        .form-group
+          input.form-control#tenzip(ng-pattern='/^[0-9]{5}$/', required, ng-model='zip', type='text', name='tenzip', autofocus)
+        button.btn.btn-primary(ng-click='getTenday()', type='submit', ng-show='tenzipForm.$valid') Get Ten Day Forecast
+  .col-xs-5
+
+.row
+  h5 The zipcode you entered is:
+  h5 {{tenzip}}
+.row
+  .col-xs-1
+  .col-xs-10
+    h3 Ten Day Forecast:
+    .webcams(ng-repeat='day in tenday')
+      img(ng-src='{{day.icon_url}}')
+  .col-xs-1

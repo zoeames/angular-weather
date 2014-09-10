@@ -1,0 +1,25 @@
+h4 {{title}}
+.row
+  .col-xs-5
+  .col-xs-2
+    h5 Enter Zipcode:
+      form(role='form', novalidate, ng-hide='hideZip', name='zipForm')
+        .form-group
+          input.form-control#zip(ng-pattern='/^[0-9]{5}$/', required, ng-model='zip', type='text', name='zip', autofocus)
+        button.btn.btn-primary(ng-click='getConditions()', type='submit', ng-show='zipForm.$valid') Get Conditions
+  .col-xs-5
+.row
+  h5 The zipcode you entered is:
+  h5 {{zip}}
+.row
+  .col-xs-4
+  .col-xs-4
+    #weather
+      h3 Current Conditions
+      .weatherPhoto(style='background-image: url("{{img}}");')
+      h4 Time: {{time}}
+      h4 Temperature: {{temperatureF}}&deg F
+      h4 Temperature: {{temperatureC}}&deg C
+      h4 Humidity: {{humidity}}
+  .col-xs-4
+    
